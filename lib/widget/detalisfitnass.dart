@@ -17,12 +17,16 @@ class DetlisFitNass extends StatefulWidget {
 }
 
 class _DetlisFitNassState extends State<DetlisFitNass> {
-  var secend = 3;
+  var secend = 1;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      appBar: AppBar(
+        title: Text("FitNess"),
+        centerTitle: true,
+      ),
       body: Stack(
         children: [
           Container(
@@ -51,7 +55,7 @@ class _DetlisFitNassState extends State<DetlisFitNass> {
               right: 25,
               left: 20,
               child: SleekCircularSlider(
-                min: 3,
+                min: 1,
                 max: 20,
                 initialValue: secend.toDouble(),
                 onChange: (double value) {

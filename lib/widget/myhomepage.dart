@@ -56,7 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          "FitNess",
+          style: TextStyle(fontSize: 22),
+        ),
+        centerTitle: true,
+      ),
       body: Container(
         child: ListView.separated(
             itemBuilder: (context, index) => Stack(

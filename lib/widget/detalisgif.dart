@@ -26,10 +26,13 @@ class _DetalisFitNassState extends State<DetalisFitNass> {
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (timer.tick == widget.second) {
         timer.cancel();
-        Future.delayed(Duration(seconds: 2), (() {
+        Future.delayed(Duration(seconds: 2), () {
           Navigator.of(context).pop();
-        }));
+        });
       }
+      setState(() {
+        startCount = timer.tick;
+      });
     });
     // TODO: implement initState
     super.initState();
@@ -38,6 +41,13 @@ class _DetalisFitNassState extends State<DetalisFitNass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "FitNess",
+          style: TextStyle(fontSize: 22),
+        ),
+        centerTitle: true,
+      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -53,14 +63,18 @@ class _DetalisFitNassState extends State<DetalisFitNass> {
                 style: TextStyle(fontSize: 30, color: Colors.amber),
               )),
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: CachedNetworkImage(
-                imageUrl: "${widget.exerciseModel.gif}",
-                fit: BoxFit.cover,
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: CachedNetworkImage(
+                  imageUrl: "${widget.exerciseModel.gif}",
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(
+                          value: downloadProgress.progress),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
             ),
           ],
