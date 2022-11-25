@@ -46,6 +46,8 @@ class _DetalisFitNassState extends State<DetalisFitNass> {
           "FitNess",
           style: TextStyle(fontSize: 22),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: Container(

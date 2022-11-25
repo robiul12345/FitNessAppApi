@@ -1,4 +1,5 @@
 import 'package:fitnass_app_api/widget/myhomepage.dart';
+import 'package:fitnass_app_api/widget/splah.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   // This widget is the root of your application.
   @override
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.amber,
       ),
-      home: MyHomePage(),
+      home: SplahScrren(),
     );
   }
 }

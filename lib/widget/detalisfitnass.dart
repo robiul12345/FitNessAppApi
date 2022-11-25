@@ -24,7 +24,12 @@ class _DetlisFitNassState extends State<DetlisFitNass> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Text("FitNess"),
+        title: Text(
+          "FitNess",
+          style: TextStyle(fontSize: 22),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: Stack(

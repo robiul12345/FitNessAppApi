@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
           "FitNess",
           style: TextStyle(fontSize: 22),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: Container(
@@ -75,8 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )));
                       },
                       child: Container(
-                          height: 200,
-                          padding: EdgeInsets.all(10),
+                          height: MediaQuery.of(context).size.height*0.3,
+                          padding: EdgeInsets.all(6),
                           width: double.infinity,
                           decoration: BoxDecoration(),
                           child: ClipRRect(
