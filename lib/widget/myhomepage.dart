@@ -41,6 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
             alldata.add(exerciseModel!);
 
             print(alldata);
+            print(alldata);
+            print(alldata);
+            print(alldata);
           });
         }
       }
