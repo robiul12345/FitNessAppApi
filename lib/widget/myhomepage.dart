@@ -15,34 +15,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late ExerciseModel exerciseModel;
+   ExerciseModel? exerciseModel;
   List<ExerciseModel> alldata = [];
 
   getData() async {
     var link =
         "https://raw.githubusercontent.com/codeifitech/fitness-app/master/exercises.json?fbclid=IwAR2nEqY-glGam1pIlPbpXNT62dUS9x12UVwqyqAbEGBqO-a9XJHaMXByRPQ";
 
-    try {} catch (e) {}
+    try {
 
-    var responce = await http.get(Uri.parse(link));
+      var responce = await http.get(Uri.parse(link));
 
-    if (responce.statusCode == 200) {
-      var data = jsonDecode(responce.body)["exercises"];
+      if (responce.statusCode == 200) {
+        var data = jsonDecode(responce.body)["exercises"];
 
-      for (var i in data) {
-        exerciseModel = ExerciseModel(
-            id: i["id"],
-            title: i["title"],
-            thumbnail: i["thumbnail"],
-            gif: i["gif"],
-            secind: i["seconds"]);
-        setState(() {
-          alldata.add(exerciseModel);
+        for (var i in data) {
+          exerciseModel = ExerciseModel(
+              id: i["id"],
+              title: i["title"],
+              thumbnail: i["thumbnail"],
+              gif: i["gif"],
+              secind: i["seconds"]
+          );
+          setState(() {
+            alldata.add(exerciseModel!);
 
-          print(alldata);
-        });
+            print(alldata);
+          });
+        }
       }
-    }
+    } catch (e) {}
+
   }
 
   @override
@@ -77,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )));
                       },
                       child: Container(
-                          height: MediaQuery.of(context).size.height*0.3,
+                          height: MediaQuery.of(context).size.height * 0.3,
                           padding: EdgeInsets.all(6),
                           width: double.infinity,
                           decoration: BoxDecoration(),
